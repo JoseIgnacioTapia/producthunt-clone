@@ -1,19 +1,22 @@
+"use client";
+import { Field, Form, InputSubmit } from "../components/ui/Form";
+
 function CreateAccout(): JSX.Element {
   return (
     <>
-      <h1>Create Account</h1>
-      <form>
-        <div>
+      <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Create Account</h1>
+      <Form>
+        <Field>
           <label htmlFor="name">Nombre</label>
           <input type="text" id="name" placeholder="Tu Nombre" name="nombre" />
-        </div>
+        </Field>
 
-        <div>
+        <Field>
           <label htmlFor="email">Email</label>
           <input type="email" id="email" placeholder="Tu Email" name="email" />
-        </div>
+        </Field>
 
-        <div>
+        <Field>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -21,10 +24,10 @@ function CreateAccout(): JSX.Element {
             placeholder="Tu plassword"
             name="password"
           />
-        </div>
+        </Field>
 
-        <input type="submit" value="Crear Cuenta" />
-      </form>
+        <InputSubmit type="submit" value="Crear Cuenta" />
+      </Form>
     </>
   );
 }
