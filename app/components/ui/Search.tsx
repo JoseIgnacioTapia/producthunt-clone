@@ -1,8 +1,10 @@
+import { InputText, InputSubmit } from "./SearchStyle";
+
 function Search(): JSX.Element {
   return (
-    <form>
-      <input type="text" />
-      <button type="submit">Buscar</button>
+    <form style={{ position: "relative" }}>
+      <InputText type="text" placeholder="Buscar productos" />
+      <InputSubmit type="submit" value="" />
     </form>
   );
 }

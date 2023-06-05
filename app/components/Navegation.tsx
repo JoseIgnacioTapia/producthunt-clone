@@ -1,12 +1,13 @@
-import Link from 'next/link';
+import Link from "next/link";
+import Nav from "./NavegationStyle";
 
 function Navegation() {
   return (
-    <nav>
+    <Nav>
       <Link href="/">Inicio</Link>
       <Link href="/">Populares</Link>
       <Link href="/">Nuevo Producto</Link>
-    </nav>
+    </Nav>
   );
 }
 

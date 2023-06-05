@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navegation from "./Navegation";
 import Search from "./ui/Search";
 import styled from "styled-components";
+import Button from "./ui/Button/ButtonStyle";
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -24,22 +25,37 @@ const Logo = styled.p`
 `;
 
 function Header(): JSX.Element {
+  const usuario = true;
+
   return (
     <header style={{ borderBottom: "2px solid #e1e1e1", padding: "1rem 0" }}>
       <ContenedorHeader>
-        <div>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <Link href="/">
             <Logo>P</Logo>
           </Link>
           <Search />
           <Navegation />
         </div>
-        <div>
-          <p>Hola: Joe</p>
-          <button type="button">Cerrar sesión</button>
 
-          <Link href="/">Login</Link>
-          <Link href="/">Crear cuenta</Link>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          {usuario ? (
+            <>
+              <p style={{ marginRight: "2rem" }}>Hola: Joe</p>
+              <Button type="button" bgColor>
+                Cerrar sesión
+              </Button>
+            </>
+          ) : (
+            <>
+              <Link href="/">
+                <Button bgColor>Login</Button>
+              </Link>
+              <Link href="/">
+                <Button>Crear cuenta</Button>
+              </Link>
+            </>
+          )}
         </div>
       </ContenedorHeader>
     </header>
