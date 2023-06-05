@@ -1,6 +1,6 @@
-'use client';
-import styled from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
+"use client";
+import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3 {
     margin: 0 0 2rem 0;
     line-height: 1.5;
+  }
+  h1, h2 {
+    font-family: var(--font-roboto), serif;
+  }
+  h3 {
+    font-family: var(--font-albert-sans);
   }
   ul {
     list-style: none;
