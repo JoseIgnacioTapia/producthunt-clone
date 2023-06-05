@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     line-height: 1.5;
+    font-family: var(--font-albert-sans);
   }
   h1, h2, h3 {
     margin: 0 0 2rem 0;

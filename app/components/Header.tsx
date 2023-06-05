@@ -25,7 +25,7 @@ const Logo = styled.p`
 `;
 
 function Header(): JSX.Element {
-  const usuario = true;
+  const usuario = false;
 
   return (
     <header style={{ borderBottom: "2px solid #e1e1e1", padding: "1rem 0" }}>
@@ -48,10 +48,10 @@ function Header(): JSX.Element {
             </>
           ) : (
             <>
-              <Link href="/">
+              <Link href="/login">
                 <Button bgColor>Login</Button>
               </Link>
-              <Link href="/">
+              <Link href="/crear-cuenta">
                 <Button>Crear cuenta</Button>
               </Link>
             </>
