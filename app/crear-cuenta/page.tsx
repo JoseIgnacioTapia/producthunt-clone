@@ -3,6 +3,7 @@ import { Field, Form, InputSubmit } from "../components/ui/Form";
 import useValidation from "@/hooks/useVatidation";
 import validateNewAccount from "@/validation/validateNewAccount";
 import { FormState } from "@/types/types";
+import { ErrorMessage } from "../styles";
 
 const STATE_INICIAL: FormState = {
   name: "",
@@ -11,7 +12,7 @@ const STATE_INICIAL: FormState = {
 };
 
 function CreateAccout(): JSX.Element {
-  const { values, errors, submitForm, handleChange, handleSubmit } =
+  const { values, errors, handleChange, handleBlur, handleSubmit } =
     useValidation(STATE_INICIAL, validateNewAccount, createAccount);
 
   const { name, email, password } = values;
@@ -30,11 +31,14 @@ function CreateAccout(): JSX.Element {
             type="text"
             id="name"
             placeholder="Tu Nombre"
-            name="nombre"
+            name="name"
             value={name}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </Field>
+
+        {errors.name && <ErrorMessage>{errors.name}</ErrorMessage>}
 
         <Field>
           <label htmlFor="email">Email</label>
@@ -45,8 +49,11 @@ function CreateAccout(): JSX.Element {
             name="email"
             value={email}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </Field>
+
+        {errors.email && <ErrorMessage>{errors.email}</ErrorMessage>}
 
         <Field>
           <label htmlFor="password">Password</label>
@@ -57,8 +64,11 @@ function CreateAccout(): JSX.Element {
             name="password"
             value={password}
             onChange={handleChange}
+            onBlur={handleBlur}
           />
         </Field>
+
+        {errors.password && <ErrorMessage>{errors.password}</ErrorMessage>}
 
         <InputSubmit type="submit" value="Crear Cuenta" />
       </Form>

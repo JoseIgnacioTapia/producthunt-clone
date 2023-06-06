@@ -35,12 +35,17 @@ const useValidation = (
     setSubmitForm(true);
   };
 
+  const handleBlur = () => {
+    const errorsValidation = validate(values);
+    setErrors(errorsValidation);
+  };
+
   return {
     values,
     errors,
-    submitForm,
     handleChange,
     handleSubmit,
+    handleBlur,
   };
 };
 
