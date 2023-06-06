@@ -1,7 +1,23 @@
 "use client";
 import { Field, Form, InputSubmit } from "../components/ui/Form";
+import useValidation from "@/hooks/useVatidation";
+import validateNewAccount from "@/validation/validateNewAccount";
+import { FormState } from "@/types/types";
+
+const STATE_INICIAL: FormState = {
+  nombre: "",
+  email: "",
+  password: "",
+};
 
 function CreateAccout(): JSX.Element {
+  const { values, errors, submitForm, handleChange, handleSubmit } =
+    useValidation(STATE_INICIAL, validateNewAccount, createAccount);
+
+  function createAccount() {
+    console.log("Creando cuenta...");
+  }
+
   return (
     <>
       <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Create Account</h1>

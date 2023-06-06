@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { FormState, ValidationFunction, FormErrors } from "@/types/types";
 
-const useValidation = (initialState: any, validate: any, fn: () => void) => {
-  const [values, setValues] = useState(initialState);
-  const [errors, setErrors] = useState({});
-  const [submitForm, setSubmitForm] = useState(false);
+const useValidation = (
+  initialState: FormState,
+  validate: ValidationFunction,
+  fn: () => void
+) => {
+  const [values, setValues] = useState<FormState>(initialState);
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [submitForm, setSubmitForm] = useState<boolean>(false);
 
   useEffect(() => {
     if (submitForm) {
