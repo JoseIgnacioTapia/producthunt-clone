@@ -1,11 +1,11 @@
 export type FormState = {
-  nombre?: string;
+  name?: string;
   email?: string;
   password?: string;
 };
 
 export type FormErrors = {
-  nombre?: string;
+  name?: string;
   email?: string;
   password?: string;
 };

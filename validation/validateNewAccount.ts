@@ -3,8 +3,8 @@ import { FormState, FormErrors } from "@/types/types";
 export default function validateNewAccount(values: FormState) {
   let errors: FormErrors = {};
 
-  if (!values.nombre) {
-    errors.nombre = "El nombre es obligatorio";
+  if (!values.name) {
+    errors.name = "El nombre es obligatorio";
   }
 
   if (!values.email) {

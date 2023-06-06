@@ -5,7 +5,7 @@ import validateNewAccount from "@/validation/validateNewAccount";
 import { FormState } from "@/types/types";
 
 const STATE_INICIAL: FormState = {
-  nombre: "",
+  name: "",
   email: "",
   password: "",
 };
@@ -14,6 +14,8 @@ function CreateAccout(): JSX.Element {
   const { values, errors, submitForm, handleChange, handleSubmit } =
     useValidation(STATE_INICIAL, validateNewAccount, createAccount);
 
+  const { name, email, password } = values;
+
   function createAccount() {
     console.log("Creando cuenta...");
   }
@@ -21,15 +23,29 @@ function CreateAccout(): JSX.Element {
   return (
     <>
       <h1 style={{ textAlign: "center", marginTop: "5rem" }}>Create Account</h1>
-      <Form>
+      <Form onSubmit={handleSubmit} noValidate>
         <Field>
           <label htmlFor="name">Nombre</label>
-          <input type="text" id="name" placeholder="Tu Nombre" name="nombre" />
+          <input
+            type="text"
+            id="name"
+            placeholder="Tu Nombre"
+            name="nombre"
+            value={name}
+            onChange={handleChange}
+          />
         </Field>
 
         <Field>
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Tu Email" name="email" />
+          <input
+            type="email"
+            id="email"
+            placeholder="Tu Email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
         </Field>
 
         <Field>
@@ -37,8 +53,10 @@ function CreateAccout(): JSX.Element {
           <input
             type="password"
             id="password"
-            placeholder="Tu plassword"
+            placeholder="Tu password"
             name="password"
+            value={password}
+            onChange={handleChange}
           />
         </Field>
 
