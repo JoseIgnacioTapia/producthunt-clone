@@ -1,10 +1,18 @@
 "use client";
-import React, { createContext } from "react";
+import React, { createContext, ReactNode } from "react";
 import firebase from "./firebase";
 
-export const FirebaseContext = createContext(null);
+interface FirebaseContextType {
+  firebase: typeof firebase;
+}
 
-export default function FirebaseProvider({ children }) {
+interface FirebaseProviderProps {
+  children: ReactNode;
+}
+
+export const FirebaseContext = createContext<FirebaseContextType | null>(null);
+
+export default function FirebaseProvider({ children }: FirebaseProviderProps) {
   return (
     <FirebaseContext.Provider value={{ firebase }}>
       {children}
