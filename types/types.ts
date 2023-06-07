@@ -1,7 +1,7 @@
 export type FormState = {
-  name?: string;
-  email?: string;
-  password?: string;
+  name?: string | null | undefined;
+  email?: string | undefined;
+  password?: string | undefined;
 };
 
 export type FormErrors = {

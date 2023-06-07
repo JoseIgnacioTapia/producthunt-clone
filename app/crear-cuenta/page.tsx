@@ -5,6 +5,8 @@ import validateNewAccount from "@/validation/validateNewAccount";
 import { FormState } from "@/types/types";
 import { ErrorMessage } from "../styles";
 
+import firebase from "@/firebase";
+
 const STATE_INICIAL: FormState = {
   name: "",
   email: "",
@@ -18,7 +20,11 @@ function CreateAccout(): JSX.Element {
   const { name, email, password } = values;
 
   function createAccount() {
-    console.log("Creando cuenta...");
+    try {
+      firebase.register(name, email, password);
+    } catch (error) {
+      console.error("Error al crear la cuenta:", (error as Error).message);
+    }
   }
 
   return (
