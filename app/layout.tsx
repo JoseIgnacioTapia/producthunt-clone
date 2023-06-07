@@ -4,6 +4,8 @@ import { Albert_Sans, Roboto, Roboto_Mono } from "next/font/google";
 import Header from "./components/Header";
 import { GlobalStyle } from "./styles";
 
+import FirebaseProvider from "@/firebase/context";
+
 const albert_sans = Albert_Sans({
   subsets: ["latin"],
   variable: "--font-albert-sans",
@@ -36,11 +38,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${albert_sans.variable} ${roboto_mono.variable}`}>
-        <StyledComponentsRegistry>
-          <GlobalStyle />
-          <Header />
-          {children}
-        </StyledComponentsRegistry>
+        <FirebaseProvider>
+          <StyledComponentsRegistry>
+            <GlobalStyle />
+            <Header />
+            {children}
+          </StyledComponentsRegistry>
+        </FirebaseProvider>
       </body>
     </html>
   );
